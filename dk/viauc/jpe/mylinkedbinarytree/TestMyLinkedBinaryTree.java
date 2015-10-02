@@ -7,6 +7,8 @@
 package dk.viauc.jpe.mylinkedbinarytree;
 
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+import jss2.BTreePrinter;
 import jss2.*;
 
 
@@ -26,16 +28,28 @@ public class TestMyLinkedBinaryTree
 		System.out.println( "full2:    " + tree.isFull2() );
 		System.out.println( "height:   " + tree.height() );
 		System.out.println( "balanced: " + tree.isBalanced() );
-		
+		tree.contains("A");
+		System.out.println("contains A called");
+		System.out.println( "balanced: " + tree.isBalanced() );
+		BTreePrinter printer = new BTreePrinter();
+		printer.printBTree(tree);
+
 		tree = buildTree2();
 		
 		System.out.println( "full:     " + tree.isFull() );
 		System.out.println( "full2:    " + tree.isFull2() );
 		System.out.println( "height:   " + tree.height() );
 		System.out.println( "balanced: " + tree.isBalanced() );
+		tree.contains("B");
+		System.out.println( "balanced: " + tree.isBalanced() );
+
+		printer.printBTree(tree);
+
+
 	}
-	
-	
+
+
+
 	private MyLinkedBinaryTree<String> buildTree()
 	{
 		MyLinkedBinaryTree<String> lTree = new MyLinkedBinaryTree<String>( "L" );
@@ -54,7 +68,7 @@ public class TestMyLinkedBinaryTree
 		MyLinkedBinaryTree<String> eTree = new MyLinkedBinaryTree<String>( "E", iTree, null );
 		MyLinkedBinaryTree<String> fTree = new MyLinkedBinaryTree<String>( "F", jTree, kTree );
 
-		MyLinkedBinaryTree<String> bTree = new MyLinkedBinaryTree<String>( "B", dTree, eTree );
+		MyLinkedBinaryTree<String> bTree = new MyLinkedBinaryTree<String>( "A", dTree, eTree );
 		MyLinkedBinaryTree<String> cTree = new MyLinkedBinaryTree<String>( "C", null, fTree );
 		
 		MyLinkedBinaryTree<String> aTree = new MyLinkedBinaryTree<String>( "A", bTree, cTree );
