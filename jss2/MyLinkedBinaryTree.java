@@ -91,6 +91,6 @@ public class MyLinkedBinaryTree<T>
 			return true;
 		}
 		else
-			return Math.abs( ((node.left.getHits()) - node.getHits()) + (node.right.getHits() - node.getHits()) ) <= 1 && isBalanced( node.left ) && isBalanced( node.right );
+			return ((node.left.getHits()) - node.getHits()) + (node.right.getHits() - node.getHits()) <= 1 && isBalanced( node.left ) && isBalanced( node.right );
 	}
 }
