@@ -90,7 +90,9 @@ public class MyLinkedBinaryTree<T>
 		if( node == null || node.left == null || node.right == null) {
 			return true;
 		}
-		else
-			return ((node.left.getHits()) - node.getHits()) + (node.right.getHits() - node.getHits()) <= 1 && isBalanced( node.left ) && isBalanced( node.right );
-	}
+		else{
+			return node.getHits() >= node.left.getHits() && node.getHits() >= node.right.getHits() && isBalanced( node.left ) && isBalanced( node.right );
+
+		}
+		}
 }
