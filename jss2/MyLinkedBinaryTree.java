@@ -45,7 +45,7 @@ public class MyLinkedBinaryTree<T>
 		return height( root );
 	}
 	
-	
+
 	private int height( BinaryTreeNode<T> node )
 	{
 		if( node == null )
@@ -87,9 +87,10 @@ public class MyLinkedBinaryTree<T>
 	
 	public boolean isBalanced( BinaryTreeNode<T> node )
 	{
-		if( node == null )
+		if( node == null || node.left == null || node.right == null) {
 			return true;
+		}
 		else
-			return Math.abs( height( node.left ) - height( node.right ) ) <= 1 && isBalanced( node.left ) && isBalanced( node.right );
+			return Math.abs( ((node.left.getHits()) - node.getHits()) + (node.right.getHits() - node.getHits()) ) <= 1 && isBalanced( node.left ) && isBalanced( node.right );
 	}
 }

@@ -17,7 +17,7 @@ import jss2.exceptions.*;
 public class LinkedBinaryTree<T> implements BinaryTreeADT<T>
 {
    protected int count;
-   protected BinaryTreeNode<T> root; 
+   protected BinaryTreeNode<T> root;
 
    /**
     * Creates an empty binary tree.
@@ -39,8 +39,8 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>
       count = 1;
       root = new BinaryTreeNode<T> (element);
    }
-   
-   
+
+
 
    /**
     * Returns a reference to the element at the root
@@ -117,7 +117,7 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>
       
       if( current == null )
          throw new ElementNotFoundException("binary tree");
-      
+
       return (current.element);
    }
 
@@ -134,14 +134,16 @@ public class LinkedBinaryTree<T> implements BinaryTreeADT<T>
       if (next == null)
          return null;
       
-      if (next.element.equals(targetElement))
+      if (next.element.equals(targetElement)) {
+         next.incrHits();
          return next;
+      }
       
       BinaryTreeNode<T> temp = findAgain(targetElement, next.left);
       
       if (temp == null)
          temp = findAgain(targetElement, next.right);
-      
+
       return temp;
    }
    

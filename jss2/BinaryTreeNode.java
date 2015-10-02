@@ -13,6 +13,7 @@ public class BinaryTreeNode<T>
 {
    protected T element;
    protected BinaryTreeNode<T> left, right;
+   private int hits;
 
    /**
     * Creates a new tree node with the specified data.
@@ -24,6 +25,24 @@ public class BinaryTreeNode<T>
       element = obj;
       left = null;
       right = null;
+      hits = 0;
+   }
+
+   /**
+    * Returns the number of hits of this node.
+    *
+    * @return  the integer number of hits of this node
+    */
+   protected int getHits() {
+      return hits;
+   }
+
+   /**
+    * Every time the node is found with the find(), contains() etc. methods
+    * its hit count is incremented by one.
+    */
+   protected void incrHits() {
+      hits++;
    }
 
    /**
